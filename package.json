@@ -8,7 +8,7 @@
     "build": "parcel build index.html -d build --public-url .",
     "deploy": "gh-pages -d build"
   },
-  "homepage": "https://markorf.github.io/cv/",
+  "homepage": "https://markorf.github.io/resume/",
   "author": "Marko Medic",
   "license": "ISC",
   "dependencies": {
