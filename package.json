@@ -1,0 +1,22 @@
+{
+  "name": "q",
+  "version": "1.0.0",
+  "description": "Official resume app",
+  "main": "index.js",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html -d build --public-url .",
+    "deploy": "gh-pages -d build"
+  },
+  "homepage": "https://markorf.github.io/cv/",
+  "author": "Marko Medic",
+  "license": "ISC",
+  "dependencies": {
+    "gh-pages": "^2.2.0"
+  },
+  "devDependencies": {
+    "cssnano": "^4.1.10",
+    "sass": "^1.25.0",
+    "typescript": "^3.8.2"
+  }
+}

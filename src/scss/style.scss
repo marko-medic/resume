@@ -1,0 +1,209 @@
+$mainBgClr: rgb(32, 32, 32);
+$listClr: rgb(175, 175, 175);
+$valuesClr: rgb(151, 124, 2);
+$purple: rgb(175, 73, 175);
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+html,
+body {
+  font-family: cursive, sans-serif;
+  background: $mainBgClr;
+  height: 100%;
+  width: 100%;
+  font-size: 1.15rem;
+  position: relative;
+  line-height: 35px;
+}
+
+#cvList {
+  list-style: none;
+  width: 80%;
+  margin: 4rem auto;
+  li {
+    display: flex;
+    color: $listClr;
+    counter-increment: custom;
+    padding-top: 0.8rem;
+    .colored {
+      color: $purple;
+      margin-left: 0.8rem;
+    }
+    &.functionClass {
+      .divForName {
+        color: lightblue;
+      }
+      .divForValue {
+        color: $purple;
+      }
+    }
+    &::before {
+      content: counter(custom) " ";
+      color: grey;
+    }
+    &:first-child {
+      counter-reset: custom;
+    }
+
+    .divForName,
+    .divForValue {
+      display: inline-block;
+    }
+    .divForName {
+      color: $listClr;
+      margin-left: 2rem;
+    }
+    .divForValue {
+      margin-left: 1rem;
+      color: $valuesClr;
+      a {
+        color: inherit;
+      }
+    }
+
+    &:hover {
+      background: lighten($mainBgClr, 20%);
+    }
+  }
+}
+
+footer.main-footer {
+  font-size: 1rem;
+  background: darken($mainBgClr, 3%);
+  position: fixed;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  left: 0;
+  right: 0;
+  color: $valuesClr;
+  justify-content: center;
+  transition: all 0.5s ease-in;
+
+  &.hidden {
+    opacity: 0;
+  }
+
+  .contact {
+    transition: all 0.5s ease-out;
+    display: flex;
+
+    .form-button {
+      color: white;
+      background-color: $purple;
+      text-decoration: none;
+    }
+
+    &.invisible {
+      display: none;
+      opacity: 0;
+    }
+
+    & .close-icon {
+      cursor: pointer;
+      background: white;
+      position: absolute;
+      right: 10px;
+    }
+
+    .location {
+      flex-basis: 33%;
+      text-align: center;
+      h2 {
+        margin-bottom: 1rem;
+      }
+    }
+    #map {
+      height: 74%;
+    }
+  } // kraj za contact
+
+  .about {
+    position: relative;
+    transition: all 0.5s ease-out;
+    &.invisible {
+      display: none;
+      opacity: 0;
+    }
+    & p {
+      width: 95%;
+    }
+    & .close-icon {
+      cursor: pointer;
+      background: white;
+      position: absolute;
+      right: 0;
+    }
+  }
+} // kraj za footer
+
+@media screen and (max-width: 940px) {
+  #cvList {
+    width: 100%;
+  }
+  .main-footer {
+    position: relative !important;
+    &.hidden {
+      display: none;
+    }
+    .contact {
+      flex-direction: column;
+      .location {
+        width: 90%;
+        margin: 2rem 0;
+        #map {
+          padding: 5rem;
+        }
+      }
+      .formDiv {
+        flex-basis: 100%;
+        input,
+        textarea {
+          width: 90% !important;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 750px) {
+  html,
+  body {
+    font-size: 1.1rem;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  html,
+  body {
+    font-size: 1rem;
+    #cvList {
+      li {
+        margin-left: -1.5rem;
+        .divForName {
+          margin-left: 0.5rem;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 380px) {
+  html,
+  body {
+    font-size: 0.93rem;
+    font-weight: bolder;
+  }
+  #cvList {
+    li {
+      margin-left: -2.3rem;
+      .divForValue {
+        margin-left: 0;
+      }
+    }
+  }
+}
